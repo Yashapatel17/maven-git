@@ -1,9 +1,15 @@
 pipeline {
     agent any
+
+    tools {
+        maven "Maven"
+        jdk "JDK-11"
+    }
+
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package' 
+                sh 'mvn clean compile'
             }
         }
     }
